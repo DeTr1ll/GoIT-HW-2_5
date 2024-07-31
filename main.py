@@ -14,12 +14,8 @@ async def main():
     currency_rate_service = CurrencyRateService(api_client)
 
     try:
-        # Отримання результатів
         rates = await currency_rate_service.get_currency_rates(days)
-
-        # Перевірка типу даних
         if isinstance(rates, list):
-            # Вивід у форматі JSON
             print(json.dumps(rates, ensure_ascii=False, indent=2))
         else:
             print("Error: The result is not a list.")
